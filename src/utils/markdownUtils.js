@@ -124,14 +124,23 @@ export function scaleMarkdownIngredients(content, multiplier) {
     const parts = line.split('|');
     // A table row starts and ends with |, so parts[0] and parts[last] are empty strings
     const cells = parts.slice(1, parts.length - 1);
-    if (cells.length !== 3) return line;
     // Skip separator rows (e.g. |---|---|---|)
     if (cells.every((c) => /^[-:\s]+$/.test(c.trim()))) return line;
-    // Skip header row
-    if (cells[0].trim().toLowerCase() === 'ingredient') return line;
-    const scaledMetric = scaleAmountStr(cells[1], multiplier);
-    const scaledImperial = scaleAmountStr(cells[2], multiplier);
-    return `| ${cells[0].trim()} | ${scaledMetric} | ${scaledImperial} |`;
+
+    if (cells.length === 4) {
+      // New format: Type | Ingredient | Metric | Imperial
+      if (cells[0].trim().toLowerCase() === 'type') return line; // header row
+      const scaledMetric = scaleAmountStr(cells[2], multiplier);
+      const scaledImperial = scaleAmountStr(cells[3], multiplier);
+      return `| ${cells[0].trim()} | ${cells[1].trim()} | ${scaledMetric} | ${scaledImperial} |`;
+    } else if (cells.length === 3) {
+      // Legacy format: Ingredient | Metric | Imperial
+      if (cells[0].trim().toLowerCase() === 'ingredient') return line; // header row
+      const scaledMetric = scaleAmountStr(cells[1], multiplier);
+      const scaledImperial = scaleAmountStr(cells[2], multiplier);
+      return `| ${cells[0].trim()} | ${scaledMetric} | ${scaledImperial} |`;
+    }
+    return line;
   });
 
   return beforeIngredients + scaledLines.join('\n') + afterIngredients;

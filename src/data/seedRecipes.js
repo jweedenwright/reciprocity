@@ -17,34 +17,34 @@ export const bolognese = `# Classic Spaghetti Bolognese
 
 ### Sauce
 
-| Ingredient | Metric | Imperial |
-|---|---|---|
-| Ground beef (or mix of beef and pork) | 500 g | 1.1 lb |
-| Onion, finely diced | 1 large | 1 large |
-| Garlic, minced | 3 cloves | 3 cloves |
-| Carrots, finely diced | 2 medium | 2 medium |
-| Celery stalks, finely diced | 2 stalks | 2 stalks |
-| Canned crushed tomatoes | 400 g | 14 oz |
-| Tomato paste | 30 ml | 2 tbsp |
-| Red wine (optional) | 120 ml | ½ cup |
-| Dried oregano | 5 ml | 1 tsp |
-| Dried basil | 5 ml | 1 tsp |
-| Salt and pepper | to taste | to taste |
-| Olive oil | 30 ml | 2 tbsp |
+| Type | Ingredient | Metric | Imperial |
+|---|---|---|---|
+| Fridge | Ground beef (or mix of beef and pork) | 500 g | 1.1 lb |
+| Fresh | Onion, finely diced | 1 large | 1 large |
+| Fresh | Garlic, minced | 3 cloves | 3 cloves |
+| Fresh | Carrots, finely diced | 2 medium | 2 medium |
+| Fresh | Celery stalks, finely diced | 2 stalks | 2 stalks |
+| Pantry | Canned crushed tomatoes | 400 g | 14 oz |
+| Pantry | Tomato paste | 30 ml | 2 tbsp |
+| Pantry | Red wine (optional) | 120 ml | ½ cup |
+| Spice | Dried oregano | 5 ml | 1 tsp |
+| Spice | Dried basil | 5 ml | 1 tsp |
+| Spice | Salt and pepper | to taste | to taste |
+| Pantry | Olive oil | 30 ml | 2 tbsp |
 
 ### Pasta
 
-| Ingredient | Metric | Imperial |
-|---|---|---|
-| Spaghetti | 400 g | 14 oz |
-| Salt (for pasta water) | to taste | to taste |
+| Type | Ingredient | Metric | Imperial |
+|---|---|---|---|
+| Pantry | Spaghetti | 400 g | 14 oz |
+| Spice | Salt (for pasta water) | to taste | to taste |
 
 ### To Serve
 
-| Ingredient | Metric | Imperial |
-|---|---|---|
-| Freshly grated Parmesan cheese | to taste | to taste |
-| Fresh basil leaves | to garnish | to garnish |
+| Type | Ingredient | Metric | Imperial |
+|---|---|---|---|
+| Fridge | Freshly grated Parmesan cheese | to taste | to taste |
+| Fresh | Fresh basil leaves | to garnish | to garnish |
 
 ---
 
@@ -95,17 +95,17 @@ export const avocadoToast = `# Avocado Toast with Poached Egg
 
 ## Ingredients
 
-| Ingredient | Metric | Imperial |
-|---|---|---|
-| Sourdough bread | 2 thick slices | 2 thick slices |
-| Ripe avocado | 1 large | 1 large |
-| Eggs | 2 large | 2 large |
-| White vinegar (for poaching) | 15 ml | 1 tbsp |
-| Lemon juice | ½ lemon | ½ lemon |
-| Red chilli flakes | 1.25 ml | ¼ tsp |
-| Salt and pepper | to taste | to taste |
-| Extra virgin olive oil | to drizzle | to drizzle |
-| Microgreens or fresh herbs (optional) | to garnish | to garnish |
+| Type | Ingredient | Metric | Imperial |
+|---|---|---|---|
+| Fresh | Sourdough bread | 2 thick slices | 2 thick slices |
+| Fresh | Ripe avocado | 1 large | 1 large |
+| Fridge | Eggs | 2 large | 2 large |
+| Pantry | White vinegar (for poaching) | 15 ml | 1 tbsp |
+| Fresh | Lemon juice | ½ lemon | ½ lemon |
+| Spice | Red chilli flakes | 1.25 ml | ¼ tsp |
+| Spice | Salt and pepper | to taste | to taste |
+| Pantry | Extra virgin olive oil | to drizzle | to drizzle |
+| Fresh | Microgreens or fresh herbs (optional) | to garnish | to garnish |
 
 ---
 
@@ -155,17 +155,17 @@ export const chocolateChipCookies = `# Classic Chocolate Chip Cookies
 
 ## Ingredients
 
-| Ingredient | Metric | Imperial |
-|---|---|---|
-| Unsalted butter, softened | 225 g | 2 sticks (1 cup) |
-| Granulated sugar | 200 g | 1 cup |
-| Light brown sugar, packed | 200 g | 1 cup |
-| Eggs | 2 large | 2 large |
-| Vanilla extract | 10 ml | 2 tsp |
-| All-purpose flour | 375 g | 3 cups |
-| Baking soda | 5 ml | 1 tsp |
-| Salt | 5 ml | 1 tsp |
-| Semi-sweet chocolate chips | 340 g | 2 cups |
+| Type | Ingredient | Metric | Imperial |
+|---|---|---|---|
+| Fridge | Unsalted butter, softened | 225 g | 2 sticks (1 cup) |
+| Pantry | Granulated sugar | 200 g | 1 cup |
+| Pantry | Light brown sugar, packed | 200 g | 1 cup |
+| Fridge | Eggs | 2 large | 2 large |
+| Pantry | Vanilla extract | 10 ml | 2 tsp |
+| Pantry | All-purpose flour | 375 g | 3 cups |
+| Pantry | Baking soda | 5 ml | 1 tsp |
+| Spice | Salt | 5 ml | 1 tsp |
+| Pantry | Semi-sweet chocolate chips | 340 g | 2 cups |
 
 ---
 
