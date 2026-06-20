@@ -31,8 +31,10 @@ Describe your recipe here.
 
 ## Ingredients
 
-- Ingredient 1
-- Ingredient 2
+| Type | Ingredient | Metric | Imperial |
+|---|---|---|---|
+| Pantry | Ingredient 1 | 100 g | 3.5 oz |
+| Fridge | Ingredient 2 | 2 large | 2 large |
 
 ---
 
