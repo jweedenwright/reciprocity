@@ -62,10 +62,9 @@ function parseInstructionSteps(content) {
  * Render step text that may contain **bold** markers as inline React Native Text.
  *
  * @param {string} text
- * @param {boolean} checked
  * @returns {React.ReactNode[]}
  */
-function renderStepText(text, checked) {
+function renderStepText(text) {
   const parts = text.split(/(\*\*[^*]+\*\*)/);
   return parts.map((part, i) => {
     if (part.startsWith('**') && part.endsWith('**')) {
@@ -86,7 +85,6 @@ export default function RecipeDetailScreen({ navigation, route }) {
   const { recipeId } = route.params;
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [checkedSteps, setCheckedSteps] = useState(new Set());
   const [cookMode, setCookMode] = useState(false);
   const [multiplier, setMultiplier] = useState(1);
 
@@ -106,7 +104,6 @@ export default function RecipeDetailScreen({ navigation, route }) {
     useCallback(() => {
       let active = true;
       setLoading(true);
-      setCheckedSteps(new Set());
       getRecipeById(recipeId)
         .then((data) => {
           if (active) setRecipe(data);
@@ -129,15 +126,6 @@ export default function RecipeDetailScreen({ navigation, route }) {
     () => parseInstructionSteps(scaledContent),
     [scaledContent],
   );
-
-  const toggleStep = (idx) => {
-    setCheckedSteps((prev) => {
-      const next = new Set(prev);
-      if (next.has(idx)) next.delete(idx);
-      else next.add(idx);
-      return next;
-    });
-  };
 
   useLayoutEffect(() => {
     if (!recipe) return;
@@ -253,30 +241,21 @@ export default function RecipeDetailScreen({ navigation, route }) {
       {/* Metadata, description, ingredients — rendered as Markdown */}
       <Markdown style={markdownStyles}>{before}</Markdown>
 
-      {/* Interactive instruction steps */}
+      {/* Numbered instruction steps */}
       {steps.length > 0 && (
         <View style={styles.stepsContainer}>
-          {steps.map((step, idx) => {
-            const isChecked = checkedSteps.has(idx);
-            return (
-              <TouchableOpacity
-                key={idx}
-                onPress={() => toggleStep(idx)}
-                activeOpacity={0.7}
-                style={styles.stepRow}
-                accessibilityRole="checkbox"
-                accessibilityState={{ checked: isChecked }}
-                accessibilityLabel={`Step ${idx + 1}`}
-              >
-                <Text style={[styles.stepCheckbox, isChecked && styles.stepCheckboxChecked]}>
-                  {isChecked ? '\u2611' : '\u2610'}
-                </Text>
-                <Text style={[styles.stepText, isChecked && styles.stepDone]}>
-                  {renderStepText(step, isChecked)}
-                </Text>
-              </TouchableOpacity>
-            );
-          })}
+          {steps.map((step, idx) => (
+            <View
+              key={idx}
+              style={styles.stepRow}
+              accessibilityLabel={`Step ${idx + 1}`}
+            >
+              <Text style={styles.stepNumber}>{idx + 1}.</Text>
+              <Text style={styles.stepText}>
+                {renderStepText(step)}
+              </Text>
+            </View>
+          ))}
         </View>
       )}
 
@@ -348,28 +327,21 @@ const styles = StyleSheet.create({
   stepRow: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
+    marginBottom: 12,
   },
-  stepCheckbox: {
-    fontSize: 22,
-    lineHeight: 26,
-    marginRight: 10,
+  stepNumber: {
+    fontSize: 15,
+    lineHeight: 24,
+    fontWeight: '600',
     color: '#555',
-  },
-  stepCheckboxChecked: {
-    color: '#1a73e8',
+    marginRight: 10,
+    minWidth: 24,
   },
   stepText: {
     flex: 1,
     fontSize: 15,
     lineHeight: 24,
     color: '#1a1a1a',
-  },
-  stepDone: {
-    textDecorationLine: 'line-through',
-    color: '#aaa',
   },
   stepBold: {
     fontWeight: '700',
