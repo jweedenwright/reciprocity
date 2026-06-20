@@ -28,11 +28,11 @@
 
 ## Instructions
 
-- [ ] **Toast the bread.** Toast the sourdough slices until golden and crisp.
-- [ ] **Prepare the avocado.** Halve the avocado, remove the pit, and scoop the flesh into a bowl. Add lemon juice, salt, and pepper. Smash with a fork to your desired consistency — chunky or smooth.
-- [ ] **Poach the eggs.** Fill a medium saucepan with about 8cm of water. Add white vinegar and bring to a gentle simmer. Crack each egg into a small cup. Stir the water to create a gentle whirlpool, then slide in one egg. Cook for 3 minutes for a runny yolk. Remove with a slotted spoon and drain on paper towel. Repeat for the second egg.
-- [ ] **Assemble.** Spread the smashed avocado generously over each slice of toast.
-- [ ] **Top and serve.** Place a poached egg on top of each toast. Drizzle with olive oil, sprinkle with chilli flakes, and garnish with microgreens if using. Serve immediately.
+1. **Toast the bread.** Toast the sourdough slices until golden and crisp.
+2. **Prepare the avocado.** Halve the avocado, remove the pit, and scoop the flesh into a bowl. Add lemon juice, salt, and pepper. Smash with a fork to your desired consistency — chunky or smooth.
+3. **Poach the eggs.** Fill a medium saucepan with about 8cm of water. Add white vinegar and bring to a gentle simmer. Crack each egg into a small cup. Stir the water to create a gentle whirlpool, then slide in one egg. Cook for 3 minutes for a runny yolk. Remove with a slotted spoon and drain on paper towel. Repeat for the second egg.
+4. **Assemble.** Spread the smashed avocado generously over each slice of toast.
+5. **Top and serve.** Place a poached egg on top of each toast. Drizzle with olive oil, sprinkle with chilli flakes, and garnish with microgreens if using. Serve immediately.
 
 ---
 
