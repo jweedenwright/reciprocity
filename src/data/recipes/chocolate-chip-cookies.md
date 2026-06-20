@@ -52,3 +52,18 @@ Crispy on the edges, chewy in the centre, and loaded with chocolate chips. This 
 - Brown the butter first for a deeper, nuttier flavour.
 - Cookies will continue to firm up as they cool — don't overbake!
 - Store in an airtight container at room temperature for up to 5 days.
+
+---
+
+## Nutrition Facts
+
+*Per cookie*
+
+| | |
+|---|---|
+| **Calories** | 175 kcal |
+| **Protein** | 2 g |
+| **Carbohydrates** | 24 g |
+| **Fat** | 8 g |
+| **Fiber** | 1 g |
+| **Sugar** | 14 g |

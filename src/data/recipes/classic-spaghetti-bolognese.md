@@ -67,3 +67,18 @@ A hearty, slow-cooked meat sauce tossed with al dente spaghetti. This classic It
 
 - The sauce can be made ahead and refrigerated for up to 3 days, or frozen for up to 3 months.
 - For a richer sauce, add a splash of whole milk or heavy cream in the last 10 minutes of simmering.
+
+---
+
+## Nutrition Facts
+
+*Per serving*
+
+| | |
+|---|---|
+| **Calories** | 520 kcal |
+| **Protein** | 30 g |
+| **Carbohydrates** | 55 g |
+| **Fat** | 18 g |
+| **Fiber** | 4 g |
+| **Sugar** | 8 g |

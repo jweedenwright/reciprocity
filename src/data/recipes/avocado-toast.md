@@ -47,3 +47,18 @@ Creamy smashed avocado on crispy sourdough toast, topped with a perfectly poache
 - For extra flavour, rub the toast with a cut garlic clove before adding avocado.
 - Add sliced cherry tomatoes or a crumble of feta for variety.
 - Use the freshest eggs possible — they hold together better when poached.
+
+---
+
+## Nutrition Facts
+
+*Per serving*
+
+| | |
+|---|---|
+| **Calories** | 320 kcal |
+| **Protein** | 14 g |
+| **Carbohydrates** | 28 g |
+| **Fat** | 18 g |
+| **Fiber** | 7 g |
+| **Sugar** | 2 g |

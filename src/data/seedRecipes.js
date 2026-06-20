@@ -70,6 +70,21 @@ A hearty, slow-cooked meat sauce tossed with al dente spaghetti. This classic It
 
 - The sauce can be made ahead and refrigerated for up to 3 days, or frozen for up to 3 months.
 - For a richer sauce, add a splash of whole milk or heavy cream in the last 10 minutes of simmering.
+
+---
+
+## Nutrition Facts
+
+*Per serving*
+
+| | |
+|---|---|
+| **Calories** | 520 kcal |
+| **Protein** | 30 g |
+| **Carbohydrates** | 55 g |
+| **Fat** | 18 g |
+| **Fiber** | 4 g |
+| **Sugar** | 8 g |
 `;
 
 export const avocadoToast = `# Avocado Toast with Poached Egg
@@ -121,6 +136,21 @@ Creamy smashed avocado on crispy sourdough toast, topped with a perfectly poache
 - For extra flavour, rub the toast with a cut garlic clove before adding avocado.
 - Add sliced cherry tomatoes or a crumble of feta for variety.
 - Use the freshest eggs possible — they hold together better when poached.
+
+---
+
+## Nutrition Facts
+
+*Per serving*
+
+| | |
+|---|---|
+| **Calories** | 320 kcal |
+| **Protein** | 14 g |
+| **Carbohydrates** | 28 g |
+| **Fat** | 18 g |
+| **Fiber** | 7 g |
+| **Sugar** | 2 g |
 `;
 
 export const chocolateChipCookies = `# Classic Chocolate Chip Cookies
@@ -177,6 +207,21 @@ Crispy on the edges, chewy in the centre, and loaded with chocolate chips. This 
 - Brown the butter first for a deeper, nuttier flavour.
 - Cookies will continue to firm up as they cool — don't overbake!
 - Store in an airtight container at room temperature for up to 5 days.
+
+---
+
+## Nutrition Facts
+
+*Per cookie*
+
+| | |
+|---|---|
+| **Calories** | 175 kcal |
+| **Protein** | 2 g |
+| **Carbohydrates** | 24 g |
+| **Fat** | 8 g |
+| **Fiber** | 1 g |
+| **Sugar** | 14 g |
 `;
 
 /** @type {import('../storage/recipeStorage').Recipe[]} */

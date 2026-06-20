@@ -1,4 +1,4 @@
-import React, { useCallback, useLayoutEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
   Alert,
@@ -10,9 +10,10 @@ import {
   View,
 } from 'react-native';
 import Markdown from 'react-native-markdown-display';
+import { activateKeepAwakeAsync, deactivateKeepAwake } from 'expo-keep-awake';
 import { useFocusEffect } from '@react-navigation/native';
 import { deleteRecipe, getRecipeById } from '../storage/recipeStorage';
-import { recipeToMarkdown } from '../utils/markdownUtils';
+import { recipeToMarkdown, scaleMarkdownIngredients } from '../utils/markdownUtils';
 
 /**
  * Split recipe content into three parts around the ## Instructions section:
@@ -86,6 +87,20 @@ export default function RecipeDetailScreen({ navigation, route }) {
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
   const [checkedSteps, setCheckedSteps] = useState(new Set());
+  const [cookMode, setCookMode] = useState(false);
+  const [multiplier, setMultiplier] = useState(1);
+
+  // Keep screen awake while cook mode is active; release on unmount or toggle off
+  useEffect(() => {
+    if (cookMode) {
+      activateKeepAwakeAsync('cook-mode');
+    } else {
+      deactivateKeepAwake('cook-mode');
+    }
+    return () => {
+      deactivateKeepAwake('cook-mode');
+    };
+  }, [cookMode]);
 
   useFocusEffect(
     useCallback(() => {
@@ -105,9 +120,14 @@ export default function RecipeDetailScreen({ navigation, route }) {
     }, [recipeId]),
   );
 
+  const scaledContent = useMemo(
+    () => scaleMarkdownIngredients(recipe?.content ?? '', multiplier),
+    [recipe?.content, multiplier],
+  );
+
   const { before, steps, after } = useMemo(
-    () => parseInstructionSteps(recipe?.content ?? ''),
-    [recipe?.content],
+    () => parseInstructionSteps(scaledContent),
+    [scaledContent],
   );
 
   const toggleStep = (idx) => {
@@ -192,6 +212,44 @@ export default function RecipeDetailScreen({ navigation, route }) {
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      {/* Cook Mode + Multiplier toolbar */}
+      <View style={styles.toolbar}>
+        <TouchableOpacity
+          onPress={() => setCookMode((prev) => !prev)}
+          style={[styles.cookModeBtn, cookMode && styles.cookModeBtnActive]}
+          accessibilityRole="switch"
+          accessibilityState={{ checked: cookMode }}
+          accessibilityLabel="Cook mode"
+        >
+          <Text style={[styles.cookModeBtnText, cookMode && styles.cookModeBtnTextActive]}>
+            {cookMode ? '🔥 Cook Mode ON' : '🍳 Cook Mode'}
+          </Text>
+        </TouchableOpacity>
+
+        <View style={styles.multiplierGroup}>
+          <Text style={styles.multiplierLabel}>Serves:</Text>
+          {[1, 2, 3].map((val) => (
+            <TouchableOpacity
+              key={val}
+              onPress={() => setMultiplier(val)}
+              style={[styles.multiplierBtn, multiplier === val && styles.multiplierBtnActive]}
+              accessibilityRole="radio"
+              accessibilityState={{ checked: multiplier === val }}
+              accessibilityLabel={`${val}×`}
+            >
+              <Text
+                style={[
+                  styles.multiplierBtnText,
+                  multiplier === val && styles.multiplierBtnTextActive,
+                ]}
+              >
+                {val}×
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
+
       {/* Metadata, description, ingredients — rendered as Markdown */}
       <Markdown style={markdownStyles}>{before}</Markdown>
 
@@ -315,6 +373,70 @@ const styles = StyleSheet.create({
   },
   stepBold: {
     fontWeight: '700',
+  },
+  // Cook mode + multiplier toolbar
+  toolbar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#f5f7fa',
+    borderRadius: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    marginBottom: 16,
+    gap: 8,
+  },
+  cookModeBtn: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 8,
+    borderWidth: 1.5,
+    borderColor: '#bbb',
+    backgroundColor: '#fff',
+  },
+  cookModeBtnActive: {
+    borderColor: '#e8630a',
+    backgroundColor: '#fff3ec',
+  },
+  cookModeBtnText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#555',
+  },
+  cookModeBtnTextActive: {
+    color: '#e8630a',
+  },
+  multiplierGroup: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+  },
+  multiplierLabel: {
+    fontSize: 13,
+    color: '#555',
+    marginRight: 4,
+  },
+  multiplierBtn: {
+    width: 36,
+    height: 32,
+    borderRadius: 8,
+    borderWidth: 1.5,
+    borderColor: '#bbb',
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  multiplierBtnActive: {
+    borderColor: '#1a73e8',
+    backgroundColor: '#e8f0fe',
+  },
+  multiplierBtnText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#555',
+  },
+  multiplierBtnTextActive: {
+    color: '#1a73e8',
   },
 });
 
