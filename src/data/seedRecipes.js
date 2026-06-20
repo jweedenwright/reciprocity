@@ -3,11 +3,13 @@
 
 export const bolognese = `# Classic Spaghetti Bolognese
 
-**Author:** Community Kitchen  
-**Prep Time:** 15 minutes  
-**Cook Time:** 45 minutes  
-**Servings:** 4  
-**Tags:** Italian, Pasta, Dinner
+| | |
+|---|---|
+| **Author** | Community Kitchen |
+| **Prep Time** | 15 minutes |
+| **Cook Time** | 45 minutes |
+| **Servings** | 4 |
+| **Tags** | Italian, Pasta, Dinner |
 
 ---
 
@@ -20,44 +22,47 @@ A hearty, slow-cooked meat sauce tossed with al dente spaghetti. This classic It
 ## Ingredients
 
 ### Sauce
-- 500g ground beef (or a mix of beef and pork)
-- 1 large onion, finely diced
-- 3 cloves garlic, minced
-- 2 medium carrots, finely diced
-- 2 stalks celery, finely diced
-- 400g canned crushed tomatoes
-- 2 tbsp tomato paste
-- 120ml red wine (optional)
-- 1 tsp dried oregano
-- 1 tsp dried basil
-- Salt and pepper to taste
-- 2 tbsp olive oil
+
+| Ingredient | Metric | Imperial |
+|---|---|---|
+| Ground beef (or mix of beef and pork) | 500 g | 1.1 lb |
+| Onion, finely diced | 1 large | 1 large |
+| Garlic, minced | 3 cloves | 3 cloves |
+| Carrots, finely diced | 2 medium | 2 medium |
+| Celery stalks, finely diced | 2 stalks | 2 stalks |
+| Canned crushed tomatoes | 400 g | 14 oz |
+| Tomato paste | 30 ml | 2 tbsp |
+| Red wine (optional) | 120 ml | ½ cup |
+| Dried oregano | 5 ml | 1 tsp |
+| Dried basil | 5 ml | 1 tsp |
+| Salt and pepper | to taste | to taste |
+| Olive oil | 30 ml | 2 tbsp |
 
 ### Pasta
-- 400g spaghetti
-- Salt (for pasta water)
+
+| Ingredient | Metric | Imperial |
+|---|---|---|
+| Spaghetti | 400 g | 14 oz |
+| Salt (for pasta water) | to taste | to taste |
 
 ### To Serve
-- Freshly grated Parmesan cheese
-- Fresh basil leaves
+
+| Ingredient | Metric | Imperial |
+|---|---|---|
+| Freshly grated Parmesan cheese | to taste | to taste |
+| Fresh basil leaves | to garnish | to garnish |
 
 ---
 
 ## Instructions
 
-1. **Brown the meat.** Heat olive oil in a large pan over medium-high heat. Add the ground beef and cook, breaking it up, until browned. Season with salt and pepper. Remove and set aside.
-
-2. **Sauté the aromatics.** In the same pan, reduce heat to medium. Add onion, carrot, and celery; cook for 5–7 minutes until softened. Add garlic and cook for 1 more minute.
-
-3. **Deglaze.** Pour in red wine (if using) and let it reduce by half, scraping up any browned bits.
-
-4. **Simmer the sauce.** Add crushed tomatoes, tomato paste, oregano, basil, and the browned meat. Stir to combine. Reduce heat to low and simmer for 30 minutes, stirring occasionally.
-
-5. **Cook the pasta.** Bring a large pot of salted water to a boil. Cook spaghetti according to package instructions until al dente. Reserve ½ cup pasta water before draining.
-
-6. **Combine.** Toss the drained spaghetti into the sauce, adding a splash of pasta water if needed to loosen.
-
-7. **Serve.** Plate the pasta and top with freshly grated Parmesan and fresh basil.
+- [ ] **Brown the meat.** Heat olive oil in a large pan over medium-high heat. Add the ground beef and cook, breaking it up, until browned. Season with salt and pepper. Remove and set aside.
+- [ ] **Sauté the aromatics.** In the same pan, reduce heat to medium. Add onion, carrot, and celery; cook for 5–7 minutes until softened. Add garlic and cook for 1 more minute.
+- [ ] **Deglaze.** Pour in red wine (if using) and let it reduce by half, scraping up any browned bits.
+- [ ] **Simmer the sauce.** Add crushed tomatoes, tomato paste, oregano, basil, and the browned meat. Stir to combine. Reduce heat to low and simmer for 30 minutes, stirring occasionally.
+- [ ] **Cook the pasta.** Bring a large pot of salted water to a boil. Cook spaghetti according to package instructions until al dente. Reserve ½ cup pasta water before draining.
+- [ ] **Combine.** Toss the drained spaghetti into the sauce, adding a splash of pasta water if needed to loosen.
+- [ ] **Serve.** Plate the pasta and top with freshly grated Parmesan and fresh basil.
 
 ---
 
@@ -69,11 +74,13 @@ A hearty, slow-cooked meat sauce tossed with al dente spaghetti. This classic It
 
 export const avocadoToast = `# Avocado Toast with Poached Egg
 
-**Author:** Brunch Club  
-**Prep Time:** 5 minutes  
-**Cook Time:** 5 minutes  
-**Servings:** 2  
-**Tags:** Breakfast, Brunch, Vegetarian, Quick
+| | |
+|---|---|
+| **Author** | Brunch Club |
+| **Prep Time** | 5 minutes |
+| **Cook Time** | 5 minutes |
+| **Servings** | 2 |
+| **Tags** | Breakfast, Brunch, Vegetarian, Quick |
 
 ---
 
@@ -85,33 +92,27 @@ Creamy smashed avocado on crispy sourdough toast, topped with a perfectly poache
 
 ## Ingredients
 
-- 2 thick slices sourdough bread
-- 1 large ripe avocado
-- 2 large eggs
-- 1 tbsp white vinegar (for poaching)
-- ½ lemon, juiced
-- ¼ tsp red chilli flakes
-- Salt and pepper to taste
-- Extra virgin olive oil, to drizzle
-- Microgreens or fresh herbs, to garnish (optional)
+| Ingredient | Metric | Imperial |
+|---|---|---|
+| Sourdough bread | 2 thick slices | 2 thick slices |
+| Ripe avocado | 1 large | 1 large |
+| Eggs | 2 large | 2 large |
+| White vinegar (for poaching) | 15 ml | 1 tbsp |
+| Lemon juice | ½ lemon | ½ lemon |
+| Red chilli flakes | 1.25 ml | ¼ tsp |
+| Salt and pepper | to taste | to taste |
+| Extra virgin olive oil | to drizzle | to drizzle |
+| Microgreens or fresh herbs (optional) | to garnish | to garnish |
 
 ---
 
 ## Instructions
 
-1. **Toast the bread.** Toast the sourdough slices until golden and crisp.
-
-2. **Prepare the avocado.** Halve the avocado, remove the pit, and scoop the flesh into a bowl. Add lemon juice, salt, and pepper. Smash with a fork to your desired consistency — chunky or smooth.
-
-3. **Poach the eggs.**
-   - Fill a medium saucepan with about 8cm of water. Add white vinegar and bring to a gentle simmer.
-   - Crack each egg into a small cup.
-   - Stir the water to create a gentle whirlpool, then slide in one egg. Cook for 3 minutes for a runny yolk.
-   - Remove with a slotted spoon and drain on paper towel. Repeat for the second egg.
-
-4. **Assemble.** Spread the smashed avocado generously over each slice of toast.
-
-5. **Top and serve.** Place a poached egg on top of each toast. Drizzle with olive oil, sprinkle with chilli flakes, and garnish with microgreens if using. Serve immediately.
+- [ ] **Toast the bread.** Toast the sourdough slices until golden and crisp.
+- [ ] **Prepare the avocado.** Halve the avocado, remove the pit, and scoop the flesh into a bowl. Add lemon juice, salt, and pepper. Smash with a fork to your desired consistency — chunky or smooth.
+- [ ] **Poach the eggs.** Fill a medium saucepan with about 8cm of water. Add white vinegar and bring to a gentle simmer. Crack each egg into a small cup. Stir the water to create a gentle whirlpool, then slide in one egg. Cook for 3 minutes for a runny yolk. Remove with a slotted spoon and drain on paper towel. Repeat for the second egg.
+- [ ] **Assemble.** Spread the smashed avocado generously over each slice of toast.
+- [ ] **Top and serve.** Place a poached egg on top of each toast. Drizzle with olive oil, sprinkle with chilli flakes, and garnish with microgreens if using. Serve immediately.
 
 ---
 
@@ -124,11 +125,13 @@ Creamy smashed avocado on crispy sourdough toast, topped with a perfectly poache
 
 export const chocolateChipCookies = `# Classic Chocolate Chip Cookies
 
-**Author:** Sweet Tooth Society  
-**Prep Time:** 15 minutes  
-**Cook Time:** 12 minutes  
-**Servings:** 24 cookies  
-**Tags:** Dessert, Baking, Cookies, Sweet
+| | |
+|---|---|
+| **Author** | Sweet Tooth Society |
+| **Prep Time** | 15 minutes |
+| **Cook Time** | 12 minutes |
+| **Servings** | 24 cookies |
+| **Tags** | Dessert, Baking, Cookies, Sweet |
 
 ---
 
@@ -140,37 +143,31 @@ Crispy on the edges, chewy in the centre, and loaded with chocolate chips. This 
 
 ## Ingredients
 
-- 225g (2 sticks) unsalted butter, softened to room temperature
-- 200g (1 cup) granulated sugar
-- 200g (1 cup, packed) light brown sugar
-- 2 large eggs
-- 2 tsp vanilla extract
-- 375g (3 cups) all-purpose flour
-- 1 tsp baking soda
-- 1 tsp salt
-- 340g (2 cups) semi-sweet chocolate chips
+| Ingredient | Metric | Imperial |
+|---|---|---|
+| Unsalted butter, softened | 225 g | 2 sticks (1 cup) |
+| Granulated sugar | 200 g | 1 cup |
+| Light brown sugar, packed | 200 g | 1 cup |
+| Eggs | 2 large | 2 large |
+| Vanilla extract | 10 ml | 2 tsp |
+| All-purpose flour | 375 g | 3 cups |
+| Baking soda | 5 ml | 1 tsp |
+| Salt | 5 ml | 1 tsp |
+| Semi-sweet chocolate chips | 340 g | 2 cups |
 
 ---
 
 ## Instructions
 
-1. **Preheat oven** to 190°C (375°F). Line two baking sheets with parchment paper.
-
-2. **Cream butter and sugars.** In a large bowl, beat the softened butter with both sugars using a hand mixer or stand mixer on medium speed until light and fluffy, about 3–4 minutes.
-
-3. **Add eggs and vanilla.** Add the eggs one at a time, beating well after each addition. Mix in the vanilla extract.
-
-4. **Combine dry ingredients.** In a separate bowl, whisk together the flour, baking soda, and salt.
-
-5. **Mix together.** Gradually add the dry ingredients to the wet ingredients, mixing on low speed just until combined. Do not overmix.
-
-6. **Fold in chocolate chips.** Using a spatula or wooden spoon, fold in the chocolate chips.
-
-7. **Scoop.** Drop rounded tablespoons of dough onto the prepared baking sheets, spacing them about 5cm apart.
-
-8. **Bake** for 10–12 minutes, or until the edges are golden but the centres still look slightly underdone.
-
-9. **Cool.** Let the cookies cool on the baking sheet for 5 minutes before transferring to a wire rack.
+- [ ] **Preheat oven** to 190°C (375°F). Line two baking sheets with parchment paper.
+- [ ] **Cream butter and sugars.** In a large bowl, beat the softened butter with both sugars using a hand mixer or stand mixer on medium speed until light and fluffy, about 3–4 minutes.
+- [ ] **Add eggs and vanilla.** Add the eggs one at a time, beating well after each addition. Mix in the vanilla extract.
+- [ ] **Combine dry ingredients.** In a separate bowl, whisk together the flour, baking soda, and salt.
+- [ ] **Mix together.** Gradually add the dry ingredients to the wet ingredients, mixing on low speed just until combined. Do not overmix.
+- [ ] **Fold in chocolate chips.** Using a spatula or wooden spoon, fold in the chocolate chips.
+- [ ] **Scoop.** Drop rounded tablespoons of dough onto the prepared baking sheets, spacing them about 5cm apart.
+- [ ] **Bake** for 10–12 minutes, or until the edges are golden but the centres still look slightly underdone.
+- [ ] **Cool.** Let the cookies cool on the baking sheet for 5 minutes before transferring to a wire rack.
 
 ---
 

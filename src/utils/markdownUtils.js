@@ -10,7 +10,7 @@ export function recipeToMarkdown(recipe) {
 }
 
 /**
- * Extract a short summary (first non-heading, non-empty line) from markdown.
+ * Extract a short summary (first non-heading, non-table, non-empty line) from markdown.
  *
  * @param {string} markdown
  * @returns {string}
@@ -19,7 +19,12 @@ export function markdownSummary(markdown) {
   const lines = markdown.split('\n');
   for (const line of lines) {
     const trimmed = line.trim();
-    if (trimmed && !trimmed.startsWith('#') && !trimmed.startsWith('---')) {
+    if (
+      trimmed &&
+      !trimmed.startsWith('#') &&
+      !trimmed.startsWith('---') &&
+      !trimmed.startsWith('|')
+    ) {
       // Strip bold markers for cleaner display
       return trimmed.replace(/\*\*/g, '').slice(0, 120);
     }
@@ -28,33 +33,53 @@ export function markdownSummary(markdown) {
 }
 
 /**
- * Parse front-matter-style metadata from the first lines of a markdown recipe.
- * Looks for lines like: **Prep Time:** 15 minutes
+ * Parse recipe metadata from a markdown recipe.
+ *
+ * Supports table format:  | **Author** | Brunch Club |
+ * and legacy inline format: **Author:** Brunch Club
  *
  * @param {string} markdown
  * @returns {{ prepTime?: string, cookTime?: string, servings?: string, author?: string, tags?: string[] }}
  */
 export function parseRecipeMetadata(markdown) {
   const meta = {};
-  const prepMatch = markdown.match(/\*\*Prep Time:\*\*\s*(.+)/);
-  if (prepMatch) meta.prepTime = prepMatch[1].trim();
 
-  const cookMatch = markdown.match(/\*\*Cook Time:\*\*\s*(.+)/);
-  if (cookMatch) meta.cookTime = cookMatch[1].trim();
+  // Match field from table row: | **Field Name** | value |
+  const parseTableField = (fieldName) => {
+    const pattern = fieldName.replace(/\s+/g, '\\s+');
+    const re = new RegExp(`\\|\\s*\\*\\*${pattern}\\*\\*\\s*\\|\\s*([^|\\n]+?)\\s*\\|`);
+    const m = markdown.match(re);
+    return m ? m[1].trim() : null;
+  };
 
-  const servingsMatch = markdown.match(/\*\*Servings:\*\*\s*(.+)/);
-  if (servingsMatch) meta.servings = servingsMatch[1].trim();
+  // Match field from legacy inline format: **Field Name:** value
+  const parseLegacyField = (fieldName) => {
+    const pattern = fieldName.replace(/\s+/g, '\\s*');
+    const re = new RegExp(`\\*\\*${pattern}:\\*\\*\\s*(.+)`);
+    const m = markdown.match(re);
+    return m ? m[1].trim() : null;
+  };
 
-  const authorMatch = markdown.match(/\*\*Author:\*\*\s*(.+)/);
-  if (authorMatch) meta.author = authorMatch[1].trim();
+  const getValue = (fieldName) =>
+    parseTableField(fieldName) ?? parseLegacyField(fieldName) ?? undefined;
 
-  const tagsMatch = markdown.match(/\*\*Tags:\*\*\s*(.+)/);
-  if (tagsMatch) {
-    meta.tags = tagsMatch[1]
+  meta.prepTime = getValue('Prep Time');
+  meta.cookTime = getValue('Cook Time');
+  meta.servings = getValue('Servings');
+  meta.author = getValue('Author');
+
+  const tagsStr = getValue('Tags');
+  if (tagsStr) {
+    meta.tags = tagsStr
       .split(',')
       .map((t) => t.trim())
       .filter(Boolean);
   }
+
+  // Remove undefined keys to match previous behaviour
+  Object.keys(meta).forEach((k) => {
+    if (meta[k] === undefined) delete meta[k];
+  });
 
   return meta;
 }

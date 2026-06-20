@@ -2,11 +2,13 @@ import { markdownSummary, parseRecipeMetadata, recipeToMarkdown } from '../src/u
 
 const SAMPLE_MARKDOWN = `# Classic Spaghetti Bolognese
 
-**Author:** Community Kitchen  
-**Prep Time:** 15 minutes  
-**Cook Time:** 45 minutes  
-**Servings:** 4  
-**Tags:** Italian, Pasta, Dinner
+| | |
+|---|---|
+| **Author** | Community Kitchen |
+| **Prep Time** | 15 minutes |
+| **Cook Time** | 45 minutes |
+| **Servings** | 4 |
+| **Tags** | Italian, Pasta, Dinner |
 
 ---
 
@@ -19,7 +21,7 @@ describe('markdownUtils', () => {
   describe('markdownSummary', () => {
     it('returns the first non-heading, non-separator line', () => {
       const summary = markdownSummary(SAMPLE_MARKDOWN);
-      // First non-heading non-separator lines are the **Author:** bold lines
+      // Table rows are skipped; first matching line is the description text
       expect(typeof summary).toBe('string');
       expect(summary.length).toBeGreaterThan(0);
     });

@@ -1,4 +1,4 @@
-import React, { useCallback, useLayoutEffect, useState } from 'react';
+import React, { useCallback, useLayoutEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
   Alert,
@@ -15,17 +15,83 @@ import { deleteRecipe, getRecipeById } from '../storage/recipeStorage';
 import { recipeToMarkdown } from '../utils/markdownUtils';
 
 /**
+ * Split recipe content into three parts around the ## Instructions section:
+ *   before  — everything up to and including the "## Instructions" heading line
+ *   steps   — array of plain-text step strings parsed from "- [ ] …" items
+ *   after   — everything from the next ## section onwards (with its leading separator)
+ *
+ * @param {string} content
+ * @returns {{ before: string, steps: string[], after: string }}
+ */
+function parseInstructionSteps(content) {
+  if (!content) return { before: '', steps: [], after: '' };
+
+  const headingRe = /^##\s+Instructions[^\n]*\n/m;
+  const headingMatch = headingRe.exec(content);
+  if (!headingMatch) return { before: content, steps: [], after: '' };
+
+  const before = content.slice(0, headingMatch.index + headingMatch[0].length);
+  const bodyAndAfter = content.slice(before.length);
+
+  const nextHeadingRe = /^##\s+/m;
+  const nextMatch = nextHeadingRe.exec(bodyAndAfter);
+
+  const instructionsBody = nextMatch
+    ? bodyAndAfter.slice(0, nextMatch.index)
+    : bodyAndAfter;
+
+  // If the instructions body ends with a horizontal rule, keep it with 'after'
+  let afterContent = nextMatch ? bodyAndAfter.slice(nextMatch.index) : '';
+  const trailHrMatch = /(\n---\s*\n\s*)$/.exec(instructionsBody);
+  if (trailHrMatch && afterContent) {
+    afterContent = instructionsBody.slice(trailHrMatch.index) + afterContent;
+  }
+
+  // Extract task-list steps: "- [ ] step text" or "- [x] step text"
+  const steps = [];
+  for (const line of instructionsBody.split('\n')) {
+    const m = line.match(/^-\s+\[[ xX]\]\s+([\s\S]+)$/);
+    if (m) steps.push(m[1].trim());
+  }
+
+  return { before, steps, after: afterContent };
+}
+
+/**
+ * Render step text that may contain **bold** markers as inline React Native Text.
+ *
+ * @param {string} text
+ * @param {boolean} checked
+ * @returns {React.ReactNode[]}
+ */
+function renderStepText(text, checked) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/);
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return (
+        <Text key={i} style={styles.stepBold}>
+          {part.slice(2, -2)}
+        </Text>
+      );
+    }
+    return part;
+  });
+}
+
+/**
  * Recipe detail screen — renders the recipe's markdown content.
  */
 export default function RecipeDetailScreen({ navigation, route }) {
   const { recipeId } = route.params;
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [checkedSteps, setCheckedSteps] = useState(new Set());
 
   useFocusEffect(
     useCallback(() => {
       let active = true;
       setLoading(true);
+      setCheckedSteps(new Set());
       getRecipeById(recipeId)
         .then((data) => {
           if (active) setRecipe(data);
@@ -38,6 +104,20 @@ export default function RecipeDetailScreen({ navigation, route }) {
       };
     }, [recipeId]),
   );
+
+  const { before, steps, after } = useMemo(
+    () => parseInstructionSteps(recipe?.content ?? ''),
+    [recipe?.content],
+  );
+
+  const toggleStep = (idx) => {
+    setCheckedSteps((prev) => {
+      const next = new Set(prev);
+      if (next.has(idx)) next.delete(idx);
+      else next.add(idx);
+      return next;
+    });
+  };
 
   useLayoutEffect(() => {
     if (!recipe) return;
@@ -112,7 +192,39 @@ export default function RecipeDetailScreen({ navigation, route }) {
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      <Markdown style={markdownStyles}>{recipe.content}</Markdown>
+      {/* Metadata, description, ingredients — rendered as Markdown */}
+      <Markdown style={markdownStyles}>{before}</Markdown>
+
+      {/* Interactive instruction steps */}
+      {steps.length > 0 && (
+        <View style={styles.stepsContainer}>
+          {steps.map((step, idx) => {
+            const isChecked = checkedSteps.has(idx);
+            return (
+              <TouchableOpacity
+                key={idx}
+                onPress={() => toggleStep(idx)}
+                activeOpacity={0.7}
+                style={styles.stepRow}
+                accessibilityRole="checkbox"
+                accessibilityState={{ checked: isChecked }}
+                accessibilityLabel={`Step ${idx + 1}`}
+              >
+                <Text style={[styles.stepCheckbox, isChecked && styles.stepCheckboxChecked]}>
+                  {isChecked ? '\u2611' : '\u2610'}
+                </Text>
+                <Text style={[styles.stepText, isChecked && styles.stepDone]}>
+                  {renderStepText(step, isChecked)}
+                </Text>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+      )}
+
+      {/* Notes and any remaining sections */}
+      {after ? <Markdown style={markdownStyles}>{after}</Markdown> : null}
+
       <TouchableOpacity
         style={styles.deleteButton}
         onPress={handleDelete}
@@ -170,6 +282,39 @@ const styles = StyleSheet.create({
     color: '#d93025',
     fontSize: 15,
     fontWeight: '600',
+  },
+  // Instruction step list
+  stepsContainer: {
+    marginBottom: 4,
+  },
+  stepRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#f0f0f0',
+  },
+  stepCheckbox: {
+    fontSize: 22,
+    lineHeight: 26,
+    marginRight: 10,
+    color: '#555',
+  },
+  stepCheckboxChecked: {
+    color: '#1a73e8',
+  },
+  stepText: {
+    flex: 1,
+    fontSize: 15,
+    lineHeight: 24,
+    color: '#1a1a1a',
+  },
+  stepDone: {
+    textDecorationLine: 'line-through',
+    color: '#aaa',
+  },
+  stepBold: {
+    fontWeight: '700',
   },
 });
 
@@ -239,5 +384,33 @@ const markdownStyles = {
     padding: 12,
     fontFamily: 'monospace',
     fontSize: 13,
+  },
+  // Table styles
+  table: {
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+    borderRadius: 4,
+    marginVertical: 8,
+  },
+  thead: {
+    backgroundColor: '#f5f7fa',
+  },
+  th: {
+    flex: 1,
+    padding: 8,
+    fontWeight: '600',
+    fontSize: 14,
+    color: '#444',
+  },
+  tr: {
+    borderBottomWidth: 1,
+    borderColor: '#e0e0e0',
+    flexDirection: 'row',
+  },
+  td: {
+    flex: 1,
+    padding: 8,
+    fontSize: 14,
+    color: '#1a1a1a',
   },
 };
