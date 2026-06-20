@@ -18,7 +18,8 @@ import { recipeToMarkdown, scaleMarkdownIngredients } from '../utils/markdownUti
 /**
  * Split recipe content into three parts around the ## Instructions section:
  *   before  — everything up to and including the "## Instructions" heading line
- *   steps   — array of plain-text step strings parsed from "- [ ] …" items
+ *   steps   — array of plain-text step strings parsed from numbered list items
+ *             ("1. …", "2. …") or legacy task-list items ("- [ ] …")
  *   after   — everything from the next ## section onwards (with its leading separator)
  *
  * @param {string} content
@@ -48,11 +49,13 @@ function parseInstructionSteps(content) {
     afterContent = instructionsBody.slice(trailHrMatch.index) + afterContent;
   }
 
-  // Extract task-list steps: "- [ ] step text" or "- [x] step text"
+  // Extract numbered list steps ("1. step text") or legacy task-list steps ("- [ ] step text")
   const steps = [];
   for (const line of instructionsBody.split('\n')) {
-    const m = line.match(/^-\s+\[[ xX]\]\s+([\s\S]+)$/);
-    if (m) steps.push(m[1].trim());
+    const numbered = line.match(/^\d+\.\s+([\s\S]+)$/);
+    if (numbered) { steps.push(numbered[1].trim()); continue; }
+    const taskList = line.match(/^-\s+\[[ xX]\]\s+([\s\S]+)$/);
+    if (taskList) steps.push(taskList[1].trim());
   }
 
   return { before, steps, after: afterContent };

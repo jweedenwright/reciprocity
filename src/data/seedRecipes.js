@@ -50,13 +50,13 @@ export const bolognese = `# Classic Spaghetti Bolognese
 
 ## Instructions
 
-- [ ] **Brown the meat.** Heat olive oil in a large pan over medium-high heat. Add the ground beef and cook, breaking it up, until browned. Season with salt and pepper. Remove and set aside.
-- [ ] **Sauté the aromatics.** In the same pan, reduce heat to medium. Add onion, carrot, and celery; cook for 5–7 minutes until softened. Add garlic and cook for 1 more minute.
-- [ ] **Deglaze.** Pour in red wine (if using) and let it reduce by half, scraping up any browned bits.
-- [ ] **Simmer the sauce.** Add crushed tomatoes, tomato paste, oregano, basil, and the browned meat. Stir to combine. Reduce heat to low and simmer for 30 minutes, stirring occasionally.
-- [ ] **Cook the pasta.** Bring a large pot of salted water to a boil. Cook spaghetti according to package instructions until al dente. Reserve ½ cup pasta water before draining.
-- [ ] **Combine.** Toss the drained spaghetti into the sauce, adding a splash of pasta water if needed to loosen.
-- [ ] **Serve.** Plate the pasta and top with freshly grated Parmesan and fresh basil.
+1. **Brown the meat.** Heat olive oil in a large pan over medium-high heat. Add the ground beef and cook, breaking it up, until browned. Season with salt and pepper. Remove and set aside.
+2. **Sauté the aromatics.** In the same pan, reduce heat to medium. Add onion, carrot, and celery; cook for 5–7 minutes until softened. Add garlic and cook for 1 more minute.
+3. **Deglaze.** Pour in red wine (if using) and let it reduce by half, scraping up any browned bits.
+4. **Simmer the sauce.** Add crushed tomatoes, tomato paste, oregano, basil, and the browned meat. Stir to combine. Reduce heat to low and simmer for 30 minutes, stirring occasionally.
+5. **Cook the pasta.** Bring a large pot of salted water to a boil. Cook spaghetti according to package instructions until al dente. Reserve ½ cup pasta water before draining.
+6. **Combine.** Toss the drained spaghetti into the sauce, adding a splash of pasta water if needed to loosen.
+7. **Serve.** Plate the pasta and top with freshly grated Parmesan and fresh basil.
 
 ---
 
@@ -111,11 +111,11 @@ export const avocadoToast = `# Avocado Toast with Poached Egg
 
 ## Instructions
 
-- [ ] **Toast the bread.** Toast the sourdough slices until golden and crisp.
-- [ ] **Prepare the avocado.** Halve the avocado, remove the pit, and scoop the flesh into a bowl. Add lemon juice, salt, and pepper. Smash with a fork to your desired consistency — chunky or smooth.
-- [ ] **Poach the eggs.** Fill a medium saucepan with about 8cm of water. Add white vinegar and bring to a gentle simmer. Crack each egg into a small cup. Stir the water to create a gentle whirlpool, then slide in one egg. Cook for 3 minutes for a runny yolk. Remove with a slotted spoon and drain on paper towel. Repeat for the second egg.
-- [ ] **Assemble.** Spread the smashed avocado generously over each slice of toast.
-- [ ] **Top and serve.** Place a poached egg on top of each toast. Drizzle with olive oil, sprinkle with chilli flakes, and garnish with microgreens if using. Serve immediately.
+1. **Toast the bread.** Toast the sourdough slices until golden and crisp.
+2. **Prepare the avocado.** Halve the avocado, remove the pit, and scoop the flesh into a bowl. Add lemon juice, salt, and pepper. Smash with a fork to your desired consistency — chunky or smooth.
+3. **Poach the eggs.** Fill a medium saucepan with about 8cm of water. Add white vinegar and bring to a gentle simmer. Crack each egg into a small cup. Stir the water to create a gentle whirlpool, then slide in one egg. Cook for 3 minutes for a runny yolk. Remove with a slotted spoon and drain on paper towel. Repeat for the second egg.
+4. **Assemble.** Spread the smashed avocado generously over each slice of toast.
+5. **Top and serve.** Place a poached egg on top of each toast. Drizzle with olive oil, sprinkle with chilli flakes, and garnish with microgreens if using. Serve immediately.
 
 ---
 
@@ -171,15 +171,15 @@ export const chocolateChipCookies = `# Classic Chocolate Chip Cookies
 
 ## Instructions
 
-- [ ] **Preheat oven** to 190°C (375°F). Line two baking sheets with parchment paper.
-- [ ] **Cream butter and sugars.** In a large bowl, beat the softened butter with both sugars using a hand mixer or stand mixer on medium speed until light and fluffy, about 3–4 minutes.
-- [ ] **Add eggs and vanilla.** Add the eggs one at a time, beating well after each addition. Mix in the vanilla extract.
-- [ ] **Combine dry ingredients.** In a separate bowl, whisk together the flour, baking soda, and salt.
-- [ ] **Mix together.** Gradually add the dry ingredients to the wet ingredients, mixing on low speed just until combined. Do not overmix.
-- [ ] **Fold in chocolate chips.** Using a spatula or wooden spoon, fold in the chocolate chips.
-- [ ] **Scoop.** Drop rounded tablespoons of dough onto the prepared baking sheets, spacing them about 5cm apart.
-- [ ] **Bake** for 10–12 minutes, or until the edges are golden but the centres still look slightly underdone.
-- [ ] **Cool.** Let the cookies cool on the baking sheet for 5 minutes before transferring to a wire rack.
+1. **Preheat oven** to 190°C (375°F). Line two baking sheets with parchment paper.
+2. **Cream butter and sugars.** In a large bowl, beat the softened butter with both sugars using a hand mixer or stand mixer on medium speed until light and fluffy, about 3–4 minutes.
+3. **Add eggs and vanilla.** Add the eggs one at a time, beating well after each addition. Mix in the vanilla extract.
+4. **Combine dry ingredients.** In a separate bowl, whisk together the flour, baking soda, and salt.
+5. **Mix together.** Gradually add the dry ingredients to the wet ingredients, mixing on low speed just until combined. Do not overmix.
+6. **Fold in chocolate chips.** Using a spatula or wooden spoon, fold in the chocolate chips.
+7. **Scoop.** Drop rounded tablespoons of dough onto the prepared baking sheets, spacing them about 5cm apart.
+8. **Bake** for 10–12 minutes, or until the edges are golden but the centres still look slightly underdone.
+9. **Cool.** Let the cookies cool on the baking sheet for 5 minutes before transferring to a wire rack.
 
 ---
 
