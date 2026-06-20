@@ -10,12 +10,6 @@
 
 ---
 
-## Description
-
-Creamy smashed avocado on crispy sourdough toast, topped with a perfectly poached egg and a sprinkle of chilli flakes. The ultimate brunch staple.
-
----
-
 ## Ingredients
 
 | Ingredient | Metric | Imperial |

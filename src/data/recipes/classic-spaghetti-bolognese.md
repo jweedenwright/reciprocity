@@ -10,12 +10,6 @@
 
 ---
 
-## Description
-
-A hearty, slow-cooked meat sauce tossed with al dente spaghetti. This classic Italian dish is a crowd-pleaser that fills the kitchen with incredible aromas.
-
----
-
 ## Ingredients
 
 ### Sauce

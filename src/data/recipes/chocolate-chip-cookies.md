@@ -10,12 +10,6 @@
 
 ---
 
-## Description
-
-Crispy on the edges, chewy in the centre, and loaded with chocolate chips. This no-fail recipe produces perfect cookies every time.
-
----
-
 ## Ingredients
 
 | Ingredient | Metric | Imperial |

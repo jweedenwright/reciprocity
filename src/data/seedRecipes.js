@@ -13,12 +13,6 @@ export const bolognese = `# Classic Spaghetti Bolognese
 
 ---
 
-## Description
-
-A hearty, slow-cooked meat sauce tossed with al dente spaghetti. This classic Italian dish is a crowd-pleaser that fills the kitchen with incredible aromas.
-
----
-
 ## Ingredients
 
 ### Sauce
@@ -99,12 +93,6 @@ export const avocadoToast = `# Avocado Toast with Poached Egg
 
 ---
 
-## Description
-
-Creamy smashed avocado on crispy sourdough toast, topped with a perfectly poached egg and a sprinkle of chilli flakes. The ultimate brunch staple.
-
----
-
 ## Ingredients
 
 | Ingredient | Metric | Imperial |
@@ -162,12 +150,6 @@ export const chocolateChipCookies = `# Classic Chocolate Chip Cookies
 | **Cook Time** | 12 minutes |
 | **Servings** | 24 cookies |
 | **Tags** | Dessert, Baking, Cookies, Sweet |
-
----
-
-## Description
-
-Crispy on the edges, chewy in the centre, and loaded with chocolate chips. This no-fail recipe produces perfect cookies every time.
 
 ---
 
