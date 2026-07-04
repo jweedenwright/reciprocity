@@ -18,10 +18,10 @@
 |:---|---:|---|
 | Red / Gold Potatoes | 12 | 12 |
 | Eggs | 6 | 6 |
-| Green Onions | 1/4 cup, sliced | ? | 
-| Dill Pickles | 3/4 cup, squared | ? |
+| Green Onions | 1/4 cup, sliced | 1/4 cup, sliced | 
+| Dill Pickles | 3/4 cup, squared | 220g |
 | Pickle Juice | 1 tbl | 15 ml |
-| Mayo | 1 cup | ? |
+| Mayo | 1 cup | 272g |
 | Yellow Mustard | 1/2 tbl | 8 ml | 
 | Milk / Half n Half | Varies | Varies |
 
