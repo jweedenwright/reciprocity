@@ -14,7 +14,7 @@
 
 ### Fresh / Fridge
 
-| Ingredient | Metric | Imperial |
+| Ingredient | Imperial | Metric |
 |:---|---:|---|
 | Red / Gold Potatoes | 12 | 12 |
 | Eggs | 6 | 6 |
@@ -27,7 +27,7 @@
 
 ### Pantry / Dried Staples
 
-| Ingredient | Metric | Imperial |
+| Ingredient | Imperial | Metric |
 |:---|---:|---|
 | Olives | 1 can, sliced | 170g, sliced |
 | Salt | 1/2 tsp | 1/2 tsp |
