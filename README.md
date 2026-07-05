@@ -122,7 +122,3 @@ Optional tips and variations.
 ```
 
 ---
-
-## Contributing
-
-This is a community app — contributions are welcome! Add your favourite recipes as `.md` files in `src/data/recipes/` and register them in `src/data/seedRecipes.js`.
