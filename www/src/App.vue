@@ -1,5 +1,10 @@
 <template>
   <div id="pwa-container">
+    <header>
+      <Header
+        headerText="Reciprocity"
+      />
+    </header>
     <main class="content">
       <router-view />
     </main>
@@ -16,5 +21,6 @@
 </style>
 
 <script setup lang="ts">
+  import Header from "./components/Header.vue";
   import Footer from "./components/Footer.vue";
 </script>
