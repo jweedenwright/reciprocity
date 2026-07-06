@@ -1,7 +1,7 @@
 <template>
   <MDBContainer>
     <div
-      class="d-flex justify-content-center align-items-center"
+      class="d-flex justify-content-center align-items-center bg-white shadow-lg"
       style="height: 100vh"
     >
       <div class="text-center">

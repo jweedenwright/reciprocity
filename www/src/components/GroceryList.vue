@@ -1,31 +1,25 @@
 <template>
   <MDBContainer>
     <div
-      class="d-flex justify-content-center align-items-center"
+      class="d-flex justify-content-center align-items-center bg-white shadow-lg"
       style="height: 100vh"
     >
-      <div class="text-center">
-        <img
-          class="mb-4"
-          src="https://mdbootstrap.com/img/logo/mdb-transparent-250px.png"
-          style="width: 250px; height: 90px"
-        />
-        <h5 class="mb-3">{{ msg }}</h5>
-        <p class="mb-3">MDB Team</p>
-        <a
-          class="btn btn-primary btn-lg"
-          href="https://mdbootstrap.com/docs/vue/"
-          target="_blank"
-          role="button"
-          >GROCERY LIST</a
-        >
-      </div>
+      <MDBRow tag="form" class="p-4">
+        <MDBCheckbox label="Onions" v-model="checkbox1" />
+        <MDBCheckbox label="Tomatoes" v-model="checkbox2" />
+        <MDBCheckbox label="Carrots" v-model="checkbox3" />
+        <MDBCheckbox label="Potatoes" v-model="checkbox4" />
+      </MDBRow>
     </div>
   </MDBContainer>
 </template>
 
 <script setup lang="ts">
-import { MDBContainer } from "mdb-vue-ui-kit";
+import { MDBContainer, MDBRow, MDBCol, MDBCheckbox } from "mdb-vue-ui-kit";
+import { ref } from "vue";
 
-defineProps<{ msg: string }>();
+const checkbox1 = ref(false);
+const checkbox2 = ref(false);
+const checkbox3 = ref(false);
+const checkbox4 = ref(false);
 </script>

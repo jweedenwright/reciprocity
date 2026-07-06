@@ -9,39 +9,30 @@
 
                     <MDBCol>
                         <!-- Cookbook -->
-                        <MDBBtn
-                            tag="a"
-                            color="primary"
-                            href="/"
-                            floating
-                            style="background-color: #ff8800"
-                            class="m-1 rounded-4">
+                        <RouterLink
+                            to="/"
+                            class="btn btn-primary m-1 rounded-4"
+                            style="background-color: #ff8800">
                                 <MDBIcon icon="book" size="2x"/>
-                        </MDBBtn>
+                        </RouterLink>
                     </MDBCol>
                     <MDBCol>
                         <!-- Grocery List -->
-                        <MDBBtn
-                            tag="a"
-                            color="primary"
-                            href="/groceries"
-                            floating
-                            style="background-color: #005985"
-                            class="m-1 rounded-4">
+                        <RouterLink
+                            to="/groceries"
+                            class="btn btn-primary m-1 rounded-4"
+                            style="background-color: #005985">
                                 <MDBIcon icon="carrot" size="2x"/>
-                        </MDBBtn>
+                        </RouterLink>
                     </MDBCol>
                     <MDBCol>
                         <!-- Substitutions -->
-                        <MDBBtn
-                            tag="a"
-                            color="primary"
-                            href="/substitutions"
-                            floating
-                            style="background-color: #446f2b"
-                            class="m-1 rounded-4">
+                        <RouterLink
+                            to="/substitutions"
+                            class="btn btn-primary m-1 rounded-4"
+                            style="background-color: #446f2b">
                                 <MDBIcon icon="exchange-alt" size="2x"/>
-                        </MDBBtn>
+                        </RouterLink>
                     </MDBCol>
                 </MDBRow>
             </section>

@@ -8,7 +8,7 @@
     <main class="content">
       <router-view />
     </main>
-    <footer class="fixed-bottom sticky bg-white">
+    <footer class="fixed-bottom sticky bg-white shadow-lg">
       <Footer/>
     </footer>
   </div>

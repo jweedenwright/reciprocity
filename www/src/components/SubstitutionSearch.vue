@@ -1,31 +1,23 @@
 <template>
   <MDBContainer>
     <div
-      class="d-flex justify-content-center align-items-center"
+      class="d-flex justify-content-center align-items-center bg-white shadow-lg"
       style="height: 100vh"
     >
       <div class="text-center">
-        <img
-          class="mb-4"
-          src="https://mdbootstrap.com/img/logo/mdb-transparent-250px.png"
-          style="width: 250px; height: 90px"
-        />
-        <h5 class="mb-3">{{ msg }}</h5>
-        <p class="mb-3">MDB Team</p>
-        <a
-          class="btn btn-primary btn-lg"
-          href="https://mdbootstrap.com/docs/vue/"
-          target="_blank"
-          role="button"
-          >Substitution Search</a
-        >
+        <MDBRow tag="form">
+          <MDBCol auto>
+            <MDBInput type="text" label="Find substitute for..." id="substitution" v-model="substitution"/>
+          </MDBCol>
+          <MDBCol auto>
+            <MDBBtn color="primary">Search</MDBBtn>
+          </MDBCol>
+        </MDBRow>
       </div>
     </div>
   </MDBContainer>
 </template>
 
 <script setup lang="ts">
-import { MDBContainer } from "mdb-vue-ui-kit";
-
-defineProps<{ msg: string }>();
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdb-vue-ui-kit";
 </script>
