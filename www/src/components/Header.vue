@@ -1,6 +1,6 @@
 <template>
-    <MDBNavbar bg="body-tertiary"  class="p-0 pb-0 ps-3">
-        <span class="navbar-text">{{ headerText }}</span>
+    <MDBNavbar class="justify-content-center p-0 pb-0 ps-3">
+        <span class="navbar-text display-6">{{ headerText }}</span>
     </MDBNavbar>
 </template>
 

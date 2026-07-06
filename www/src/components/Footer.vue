@@ -1,11 +1,11 @@
 <template>
-    <MDBFooter :text="['center']">
+    <MDBFooter :text="['center']" bg="white">
         <!-- Grid container -->
         <MDBContainer class="p-2 pb-0">
             <!-- Section: Pages -->
             <section class="mb-2">
             
-                <MDBRow class="align-items-end bg-body-tertiary mb-3">
+                <MDBRow class="align-items-end">
 
                     <MDBCol>
                         <!-- Cookbook -->

@@ -1,6 +1,6 @@
 <template>
   <div id="pwa-container">
-    <header>
+    <header class="fixed-top bg-white">
       <Header
         headerText="Reciprocity"
       />
@@ -8,7 +8,7 @@
     <main class="content">
       <router-view />
     </main>
-    <footer class="fixed-bottom">
+    <footer class="fixed-bottom sticky bg-white">
       <Footer/>
     </footer>
   </div>
