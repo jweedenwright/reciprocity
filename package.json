@@ -1,0 +1,27 @@
+{
+  "name": "reciprocity",
+  "version": "1.0.0",
+  "description": "A cross-platform community recipe app for Android and iOS built with [Expo](https://expo.dev) (React Native). Share, discover, and create recipes written in **Markdown**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "backend": "cd backend && node index.js",
+    "www": "cd www && npm run dev",
+    "dev": "concurrently \"npm run backend\" \"npm run www\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jweedenwright/reciprocity.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jweedenwright/reciprocity/issues"
+  },
+  "homepage": "https://github.com/jweedenwright/reciprocity#readme",
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  }
+}

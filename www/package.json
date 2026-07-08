@@ -10,6 +10,8 @@
     "start": "vite --open"
   },
   "dependencies": {
+    "axios": "^1.18.1",
+    "dompurify": "^3.4.11",
     "mdb-vue-ui-kit": "7.0.0",
     "vue": "3.3.4",
     "vue-router": "4.0.15"

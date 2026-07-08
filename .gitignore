@@ -6,9 +6,11 @@ node_modules/
 dist/
 web-build/
 expo-env.d.ts
+# keys
 *.p8
 *.p12
 *.key
+cookbook*.json
 npm-debug.*
 # macOS
 .DS_Store

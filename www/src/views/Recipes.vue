@@ -1,6 +1,6 @@
 <template>
-  <Cookbook
-    msg="Cookbook"
+  <Recipe
+    msg="Recipe"
   />
 </template>
 
