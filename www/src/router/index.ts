@@ -4,7 +4,12 @@ const routes = [
   {
     path: "/",
     name: "Cookbook",
-    component: () => import("../views/Recipes.vue"),
+    component: () => import("../views/Cookbook.vue"),
+  },
+  {
+    path: "/recipe/:id",
+    name: "Recipe",
+    component: () => import("../views/Recipe.vue"),
   },
   {
     path: "/groceries",

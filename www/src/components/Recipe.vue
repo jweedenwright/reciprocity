@@ -1,35 +1,35 @@
 <template>
   <MDBContainer>
     <div
-      class="d-flex justify-content-center align-items-center bg-white shadow-lg"
-      style="height: 100vh"
-    >
-      <div v-if="isLoading">Loading...</div>
-      <div v-else-if="hasError">Error loading content</div>
-      <div v-else v-html="apiHtmlContent"></div>
-    </div>
+      class="d-flex w-100 align-items-center bg-white shadow-lg"
+      style="height: 100vh">
+      <!-- Only render the list if we actually have data back from the API -->
+      <h3>Boop</h3>
+  </div>
   </MDBContainer>
 </template>
 
 <script setup lang="ts">
-import { MDBContainer } from "mdb-vue-ui-kit";
+import { MDBContainer, MDBListGroup, MDBListGroupItem, MDBBadge } from "mdb-vue-ui-kit";
 import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 import axios from 'axios';
 import DOMPurify from 'dompurify'
 
-defineProps<{ msg: string }>();
-const apiHtmlContent = ref('');
-const isLoading = ref(true)
-const hasError = ref(false)
+const isLoading = ref(true);
+const hasError = ref(false);
+const recipes = ref([]);
+const route = useRoute()
 
 onMounted(async () => {
   try {
-    const response = await axios.get('http://localhost:5000/api/data');
-    console.log(response)
+    const recipe_path = computed(() => route.hash)
+    console.log(recipe_path);
+    const response = await axios.get(`http://localhost:5000/api/${recipe_path.value}`);
     if (response.status !== 200) throw new Error('Network error')
-    const rawData = await response.data.message // Or response.json(), depending on your API structure
-    // Clean the HTML string to remove malicious scripts
-    apiHtmlContent.value = DOMPurify.sanitize(rawData) 
+    console.table(response);
+    const rawData = await response.data // Or response.json(), depending on your API structure
+    recipes.value = rawData;
   } catch (error) {
     console.error('Failed to fetch HTML:', error)
     hasError.value = true
@@ -37,4 +37,5 @@ onMounted(async () => {
     isLoading.value = false
   }
 });
+
 </script>
