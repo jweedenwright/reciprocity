@@ -36,7 +36,7 @@ app.get('/api/recipe/:id', async (req, res) => {
     const fileId = req.params.id;
     try {
         const fileContent = await getFileAsString(fileId);
-        res.json({ content: fileContent });
+        res.json({ content: marked.parse(fileContent) });
     } catch (error) {
         res.status(500).json({ error: 'Failed to fetch recipe: ' + error });
     }
