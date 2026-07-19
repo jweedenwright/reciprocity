@@ -3,7 +3,7 @@
     <div
       class="d-flex w-100 align-items-center bg-white shadow-lg">
       <!-- Only render the list if we actually have data back from the API -->
-      <div class="p-3" v-if="recipe" v-html="recipe.content"></div>
+      <div class="p-4 markdown-body" v-if="recipe" v-html="recipe.content"></div>
       <h3 v-else-if="isLoading">Loading...</h3>
       <h3 v-else-if="hasError">Error loading recipe</h3>
   </div>
