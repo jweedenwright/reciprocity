@@ -34,7 +34,7 @@
 
 <script setup lang="ts">
 import { MDBContainer, MDBListGroup, MDBListGroupItem, MDBBadge } from "mdb-vue-ui-kit";
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed, getCurrentInstance } from 'vue';
 import axios from 'axios';
 import DOMPurify from 'dompurify'
 
@@ -42,10 +42,12 @@ const isLoading = ref(true);
 const hasError = ref(false);
 const recipes = ref([]);
 const searchRecipes = ref('');
+const { proxy } = getCurrentInstance()
 
 onMounted(async () => {
   try {
-    const response = await axios.get('http://localhost:5000/api/cookbook');
+    console.log("Fetching: " + proxy.$api + 'api/cookbook');
+    const response = await axios.get(proxy.$api + 'api/cookbook');
     if (response.status !== 200) throw new Error('Network error')
     const rawData = await response.data // Or response.json(), depending on your API structure
     recipes.value = rawData;
