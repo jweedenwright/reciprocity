@@ -1,0 +1,9 @@
+#pwa-container {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+.content {
+    background-color: rgb(20, 80, 117);
+    padding-top: 50px;
+    padding-bottom: 65px;
+}

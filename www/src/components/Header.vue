@@ -1,6 +1,6 @@
 <template>
     <MDBNavbar class="p-0 pb-0 ps-3 pe-3">
-        <span class="navbar-text display-6">{{ headerText }}</span>
+        <span class="navbar-text display-6">Reciprocity</span>
         <MDBBtnGroup aria-label="Help Buttons">
           <MDBBtn tag="a" size="sm" outline="secondary"> Text Size </MDBBtn>
           <MDBBtn tag="a" size="sm" outline="secondary" color="primary"> Cook Mode </MDBBtn>
