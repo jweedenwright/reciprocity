@@ -1,9 +1,13 @@
+body {
+  background-color: rgb(20, 80, 117);
+}
+
 #pwa-container {
   font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 
-.content {
+#main-content {
     background-color: rgb(20, 80, 117);
-    padding-top: 50px;
+    padding-top: 60px;
     padding-bottom: 65px;
 }

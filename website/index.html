@@ -22,113 +22,73 @@
     <link rel="stylesheet" href="styles/github-markdown.css" />
 </head>
 <body>
+  <div id="app">
+      <div id="pwa-container">
+          <header class="fixed-top bg-white">
+              <nav class="navbar p-0 pb-0 ps-3 pe-3">
+                  <span class="navbar-text display-6">Reciprocity</span>
+                  <div class="btn-group" aria-label="Help Buttons">
+                      <button class="btn" tag="a" size="sm" outline="secondary" data-mdb-ripple-init> Text Size </button>
+                      <button class="btn" tag="a" size="sm" outline="secondary" color="primary" data-mdb-ripple-init> Cook Mode </button>
+                  </div>
+              </nav>
+          </header>
 
-    <div id="app">
-        <div id="pwa-container">
-            <header class="fixed-top bg-white">
-                <nav class="navbar p-0 pb-0 ps-3 pe-3">
-                    <span class="navbar-text display-6">Reciprocity</span>
-                    <div class="btn-group" aria-label="Help Buttons">
-                        <button class="btn" tag="a" size="sm" outline="secondary" data-mdb-ripple-init> Text Size </button>
-                        <button class="btn" tag="a" size="sm" outline="secondary" color="primary" data-mdb-ripple-init> Cook Mode </button>
-                    </div>
-                </nav>
-            </header>
-
-            <!-- Main Content Container -->
-            <main class="content">
-                
-            </main>
-            
-            <footer class="fixed-bottom sticky bg-white shadow-lg" :text="['center']" bg="white">
-                <!-- Grid container -->
-                <div class="container p-2 pb-0">
-                    <!-- Section: Pages -->
-                    <section class="mb-2">
-                    
-                        <div class="row align-items-end">
-
-                            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                                <!-- Cookbook -->
-                                <a href="#"
-                                    class="btn btn-primary m-1 rounded-4" 
-                                    style="background-color: #ff8800"
-                                    data-route="section/recipe.html">
-                                        <i class="fa fa-book" size="2x"></i>
-                                </a>
-                            </div>
-                            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                                <!-- Grocery List -->
-                                <a href="#"
-                                    class="btn btn-primary m-1 rounded-4"
-                                    style="background-color: #005985"
-                                    data-route="section/groceries.html">
-                                        <i class="fa fa-carrot" size="2x"></i>
-                                </a>
-                            </div>
-                            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                                <!-- Substitutions -->
-                                <a href="#"
-                                    class="btn btn-primary m-1 rounded-4"
-                                    style="background-color: #446f2b"
-                                    data-route="section/substitutions.html">
-                                        <i class="fa fa-exchange-alt" size="2x"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-                    <!-- Section: Pages -->
+          <!-- Main Content Container -->
+          <main id="main-content">
+            <div class="container">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Welcome to Reciprocity</h5>
+                  <p class="card-text">lorem ipsum</p>
                 </div>
-            </footer>
-        </div>
-    </div>
-    
-    
-      
-      <!-- Loading Spinner
-      <div v-if="loading" class="text-center my-5">
-        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
-          <span class="visually-hidden">Loading...</span>
-        </div>
-        <p class="mt-2 text-muted">Fetching live API data...</p>
-      </div>
-        -->
-      <!-- Error Alert
-      <div v-if="error" class="alert alert-danger shadow-1-strong" role="alert">
-        <i class="fas fa-exclamation-triangle me-2"></i> {{ error }}
-      </div>
-    -->
-
-      <!-- API Data Grid (Renders when not loading) 
-      <div v-if="!loading && !error" class="row row-cols-1 row-cols-md-3 g-4">
-      -->
-        
-      <!-- Vue Loop: Generates a Card for each item in the array
-        <div class="col" v-for="user in items" :key="user.id">
-          <div class="card h-100 shadow-2-strong hover-shadow">
-            <div class="card-body">
-              <h5 class="card-title fw-bold text-primary">
-                <i class="fas fa-user-circle me-2"></i>{{ user.name }}
-              </h5>
-              <p class="card-text text-muted mb-1">
-                <i class="fas fa-envelope fa-fw me-2"></i>{{ user.email }}
-              </p>
-              <p class="card-text text-muted mb-1">
-                <i class="fas fa-globe fa-fw me-2"></i>{{ user.website }}
-              </p>
-              <p class="card-text text-muted">
-                <i class="fas fa-building fa-fw me-2"></i>{{ user.company.name }}
-              </p>
+              </div>
             </div>
-            <div class="card-footer bg-transparent border-0 pt-0 pb-3 ps-3">
-              <button class="btn btn-primary btn-sm ripple-surface" @click="selectUser(user.name)">
-                View Profile
-              </button>
-            </div>
-          </div>
-        </div>
-    -->
+          </main>
+          
+          <footer class="fixed-bottom sticky bg-white shadow-lg" :text="['center']" bg="white">
+              <!-- Grid container -->
+              <div class="container p-2 pb-0">
+                  <!-- Section: Pages -->
+                  <section class="mb-2">
+                  
+                      <div class="row align-items-center">
 
+                          <div class="col text-center">
+                              <!-- Cookbook -->
+                              <a href="#"
+                                  class="btn btn-primary m-2 rounded-4" 
+                                  style="background-color: #ff8800"
+                                  data-route="section/cookbook.html">
+                                      <i class="fa fa-book" size="2x"></i>
+                              </a>
+                          </div>
+                          <div class="col text-center">
+                              <!-- Grocery List -->
+                              <a href="#"
+                                  class="btn btn-primary m-2 rounded-4"
+                                  style="background-color: #005985"
+                                  data-route="section/groceries.html">
+                                      <i class="fa fa-carrot" size="2x"></i>
+                              </a>
+                          </div>
+                          <div class="col text-center">
+                              <!-- Substitutions -->
+                              <a href="#"
+                                  class="btn btn-primary m-2 rounded-4"
+                                  style="background-color: #446f2b"
+                                  data-route="section/substitutions.html">
+                                      <i class="fa fa-exchange-alt" size="2x"></i>
+                              </a>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- Section: Pages -->
+              </div>
+          </footer>
+      </div>
+  </div>
+    
   <!-- MDBootstrap JavaScript (Required for ripples, dropdowns, etc.) -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.3.0/mdb.umd.min.js"></script>
 
@@ -138,8 +98,7 @@
   <!-- Vue Logic -->
   <script>
     const { createApp, ref, onMounted } = Vue;
-
-    createApp({
+    const app = createApp({
       setup() {
         // Reactive State Variables
         const items = ref([]);
@@ -148,45 +107,55 @@
 
         // Async Function to fetch API data
         async function fetchData() {
-          loading.value = true;
-          error.value = null;
-          
-          try {
+            loading.value = true;
+            error.value = null;
+            
+            try {
             // Using a real public placeholder API for this example
             /*const response = await fetch('');
             
             if (!response.ok) {
-              throw new Error(`HTTP error! Status: ${response.status}`);
+                throw new Error(`HTTP error! Status: ${response.status}`);
             }
             
             items.value = await response.json();
             */
-          } catch (err) {
+            } catch (err) {
             error.value = `Failed to load data: ${err.message}`;
-          } finally {
+            } finally {
             loading.value = false;
-          }
+            }
         }
 
         function selectUser(name) {
-          alert(`You clicked on: ${name}`);
+            alert(`You clicked on: ${name}`);
         }
 
         // Lifecycle Hook: Runs automatically when the page loads
-        onMounted(() => {
-          fetchData();
-        });
+        //onMounted(() => {
+        //    fetchData();
+        //});
 
         // Return properties so the HTML template can read them
         return {
-          items,
-          loading,
-          error,
-          fetchData,
-          selectUser
+            items,
+            loading,
+            error,
+            fetchData,
+            selectUser
         };
-      }
+        }
     }).mount('#app');
+    
+    // Determine environment
+    var config = {
+      env: "dev"
+      , api: "https://wwcookbook-64210040980.us-east1.run.app/"
+    }
+    if (window.location.hostname.indexOf('weeden-wright') != -1) {
+      config.env = "prod";
+      config.api = "https://wwcookbook-64210040980.us-east1.run.app/";
+    }
   </script>
 
 </body>

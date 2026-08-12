@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 1. Define the loading function
   async function loadPage(url) {
     try {
+
       // Fetch the standalone partial HTML file
       const response = await fetch(url);
       
@@ -29,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // 2. Intercept global clicks on links with [data-route]
   document.body.addEventListener("click", (event) => {
     const targetLink = event.target.closest("[data-route]");
-    
     if (targetLink) {
       event.preventDefault(); // Stop normal browser link behavior
       const targetPage = targetLink.getAttribute("data-route");
