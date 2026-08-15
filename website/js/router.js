@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // PRE-PAGE LOAD - Dynamic JavaScript for content loaded on specific pages
       if (url.indexOf('cookbook') != -1) {
-        const cookbook_loaded = await app.config.globalProperties.$getCookbook();
+        const cookbook_loaded = await getCookbook();
       }
 
       // Fetch the standalone partial HTML file
@@ -29,16 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // POST-PAGE LOAD - Dynamic JavaScript for after a page is loaded
       if (url.indexOf('cookbook') != -1) {
-        app.config.globalProperties.$recipes.value.forEach((item) => {
-          console.log(item) // Accesses {…}
-          var li = "<li class='list-group-item d-flex justify-content-between align-items-center' tag='a' href='#/recipe/" + item.id + "' data-id='" + item.id + "' action>";
-          li += "<h3 class='fw-bold'>" + DOMPurify.sanitize(item.name) + "</h3>";
-          item.description.split('|').forEach(tag => {
-              li += "<span class='badge badge-warning rounded-pill'>" + DOMPurify.sanitize(tag) + "</span>";
-          });
-          li += "</li>";
-          document.querySelector('#recipe-list ul').innerHTML += li;
-        })
+        showCookbook();
       }
     } catch (error) {
       contentContainer.innerHTML = `<div class="alert alert-danger">Error loading content: ${error.message}</div>`;

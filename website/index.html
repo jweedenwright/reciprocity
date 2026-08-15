@@ -103,42 +103,12 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.4.12/purify.min.js"></script>
   <!-- Local JS -->
   <script type="text/javascript" src="js/router.js"></script>
+  <script type="text/javascript" src="js/cookbook.js"></script>
 
   <!-- Vue Logic -->
   <script>
     const { createApp, ref, onMounted } = Vue;
-    const app = createApp({});
-    // Define vars
-    app.config.globalProperties.$recipes = ref([]);
-    app.config.globalProperties.$searchRecipes = ref('');
-    app.config.globalProperties.$hasError = ref(false);
-    app.config.globalProperties.$isLoading = ref(true);
-    // Define functions to be used on pages as they load
-    app.config.globalProperties.$getCookbook = async function () { 
-        try {
-            console.log("Fetching: " + config.api + 'api/cookbook');
-            const response = await axios.get(config.api + 'api/cookbook');
-            if (response.status !== 200) throw new Error('Network error')
-            const rawData = await response.data // Or response.json(), depending on your API structure
-            app.config.globalProperties.$recipes = rawData;
-        } catch (error) {
-            console.error('Failed to fetch HTML:', error)
-            app.config.globalProperties.$hasError.value = true
-        } finally {
-            app.config.globalProperties.$isLoading.value = false
-        }
-    };
-    app.config.globalProperties.$filterRecipes = function(){
-        const query = app.config.globalProperties.$searchRecipes.value.toLowerCase();
-        if (!query) return app.config.globalProperties.$recipes.value; // Return all with no query
-        return app.config.globalProperties.$recipes.value.filter(recipe =>
-            recipe.description.toLowerCase().includes(query)
-            || recipe.name.toLowerCase().includes(query)
-        );
-    };
-
-    app.mount('#app');
-
+    
     // Determine environment
     var config = {
       env: "dev"
@@ -148,6 +118,14 @@
       config.env = "prod";
       config.api = "https://wwcookbook-64210040980.us-east1.run.app/";
     }
+    
+    // Construct the vue app
+    const app = createApp({});
+    app.config.globalProperties.$recipes = ref([]);
+    app.config.globalProperties.$hasError = ref(false);
+    app.config.globalProperties.$isLoading = ref(true);
+    // Start the app
+    app.mount('#app');
   </script>
 
 </body>
