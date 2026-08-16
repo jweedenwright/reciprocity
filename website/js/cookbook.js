@@ -1,5 +1,7 @@
 // Used to pull all recipes from our Google endpoint
+let api_recipes = []
 let recipes = []
+
 // Initialize wake lock and elements
 let wakeLock = null;
 const recipeContainer = document.getElementById('main-content');
@@ -24,7 +26,6 @@ async function enableCookMode() {
   try {
     wakeLock = await navigator.wakeLock.request('screen');
     recipeContainer.classList.add('cook-mode-active');
-    console.log("add class");
     cookModeBtn.classList.add('btn-danger');
   } catch (err) {
     console.error(`${err.name}, ${err.message}`);
@@ -42,11 +43,10 @@ async function disableCookMode() {
 
 async function getCookbook() { 
     try {
-        console.log("Fetching: " + config.api + 'api/cookbook');
         const response = await axios.get(config.api + 'api/cookbook');
         if (response.status !== 200) throw new Error('Network error')
         const rawData = await response.data // Or response.json(), depending on your API structure
-        recipes = rawData;
+        api_recipes = rawData;
         return true;
     } catch (error) {
         console.error('Failed to fetch HTML:', error)
@@ -56,7 +56,7 @@ async function getCookbook() {
 
 // Used to load all recipes into the UI
 async function showCookbook() {
-    recipes.forEach((item) => {
+    api_recipes.forEach((item) => {
         var li = "<li class='list-group-item justify-content-between align-items-center recipe' tag='a' href='#/recipe/" + item.id + "' data-id='" + item.id + "' action>";
         li += "<div class='d-flex'><h3 class='fw-bold'>" + DOMPurify.sanitize(item.name).replace('.md','') + "</h3></div><div class='d-flex'><p>";
         item.description.split('|').forEach(tag => {
@@ -83,7 +83,6 @@ async function showCookbook() {
 // Used to filter recipes on the cook book page
 function filterRecipes(filterValue) {
     const query = filterValue.toLowerCase();
-    console.log(filterValue);
     if (!filterValue) {
         // Show all when no filter is present
         recipes.forEach(item => {
