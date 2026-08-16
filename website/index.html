@@ -9,13 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   
     <!-- Google Fonts (Roboto) -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap">
     
     <!-- MDBootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.3.0/mdb.min.css" />
-  
-    <!-- Vue 3 Global CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.5/vue.global.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.3.0/mdb.min.css" />  
 
     <!-- Local Styles -->
     <link rel="stylesheet" href="styles/style.css" />
@@ -34,8 +31,8 @@
               <nav class="navbar p-0 pb-0 ps-3 pe-3">
                   <span class="navbar-text display-6">Reciprocity</span>
                   <div class="btn-group" aria-label="Help Buttons">
-                      <button class="btn" tag="a" size="sm" outline="secondary" data-mdb-ripple-init> Text Size </button>
-                      <button class="btn" tag="a" size="sm" outline="secondary" color="primary" data-mdb-ripple-init> Cook Mode </button>
+                      <button id="text-size" class="btn" size="sm" outline="secondary" data-mdb-ripple-init> Text Size </button>
+                      <button id="cook-mode" class="btn" size="sm" outline="secondary" data-mdb-ripple-init> Cook Mode </button>
                   </div>
               </nav>
           </header>
@@ -97,7 +94,7 @@
     
   <!-- MDBootstrap JavaScript (Required for ripples, dropdowns, etc.) -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.3.0/mdb.umd.min.js"></script>
-  <!-- Axios -->
+  <!-- Axios for fetching from API endpoints -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/axios@1.19.0/dist/axios.min.js"></script>
   <!-- DOM Purify for injection -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.4.12/purify.min.js"></script>
@@ -105,10 +102,8 @@
   <script type="text/javascript" src="js/router.js"></script>
   <script type="text/javascript" src="js/cookbook.js"></script>
 
-  <!-- Vue Logic -->
+  <!-- Global Logic -->
   <script>
-    const { createApp, ref, onMounted } = Vue;
-    
     // Determine environment
     var config = {
       env: "dev"
@@ -118,14 +113,6 @@
       config.env = "prod";
       config.api = "https://wwcookbook-64210040980.us-east1.run.app/";
     }
-    
-    // Construct the vue app
-    const app = createApp({});
-    app.config.globalProperties.$recipes = ref([]);
-    app.config.globalProperties.$hasError = ref(false);
-    app.config.globalProperties.$isLoading = ref(true);
-    // Start the app
-    app.mount('#app');
   </script>
 
 </body>
