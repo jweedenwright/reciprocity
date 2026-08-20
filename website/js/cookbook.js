@@ -1,6 +1,7 @@
 // Used to pull all recipes from our Google endpoint
 let api_recipes = []
 let recipes = []
+let recipe = {content: null }; // Using an object to hold the recipe data so that it can be reactive if needed
 
 // Initialize wake lock and elements
 let wakeLock = null;
@@ -41,6 +42,8 @@ async function disableCookMode() {
   cookModeBtn.classList.remove('btn-danger');
 }
 
+////////////////////////////////////////////////////////////
+// COOKBOOK FUNCTIONS ------------------------------
 async function getCookbook() { 
     try {
         const response = await axios.get(config.api + 'api/cookbook');
@@ -56,23 +59,19 @@ async function getCookbook() {
 
 // Used to load all recipes into the UI
 async function showCookbook() {
+    api_recipes = api_recipes.sort((a, b) => a.name.localeCompare(b.name));
+    document.querySelector('#recipe-list ul').innerHTML = ''; // Clear existing list
     api_recipes.forEach((item) => {
-        var li = "<li class='list-group-item justify-content-between align-items-center recipe' tag='a' href='#/recipe/" + item.id + "' data-id='" + item.id + "' action>";
+        var li = "<li class='list-group-item justify-content-between align-items-center recipe'><a href='#/recipe/" + item.id + "' data-route='recipe/" + item.id + "' action>";
         li += "<div class='d-flex'><h3 class='fw-bold'>" + DOMPurify.sanitize(item.name).replace('.md','') + "</h3></div><div class='d-flex'><p>";
         item.description.split('|').forEach(tag => {
             li += "<span class='badge badge-warning rounded-pill'>" + DOMPurify.sanitize(tag) + "</span>";
         });
-        li += "</p></div></li>";
+        li += "</p></div></a></li>";
         document.querySelector('#recipe-list ul').innerHTML += li;
     });
-    document.querySelectorAll('.recipe').forEach(item => {
-        recipes.push(item);
-        item.addEventListener('click', (event) => {
-            const id = event.currentTarget.getAttribute('data-id');
-            window.location.hash = '#/recipe/' + id;
-        });
-    });
-
+    // Cache the recipe elements for filtering
+    recipes = Array.from(document.querySelectorAll('.recipe'));
     // Bind the event listener
     document.getElementById('recipeSearch').addEventListener('keyup', (event) => {
         // Pass in the value from the input box
@@ -100,4 +99,27 @@ function filterRecipes(filterValue) {
             }
         });
     }
+}
+
+////////////////////////////////////////////////////////////
+// RECIPE FUNCTIONS ------------------------------
+async function getRecipe(id) { 
+    console.log(id);
+    try {
+        console.log(config.api + 'api/recipe/' + id);
+        const response = await axios.get(config.api + 'api/recipe/' + id);
+        if (response.status !== 200) throw new Error('Network error')
+        const rawData = await response.data // Or response.json(), depending on your API structure
+        recipe = rawData;
+        console.log(recipe)
+        return true;
+    } catch (error) {
+        console.error('Failed to fetch HTML:', error)
+        return false;
+    }
+};
+
+// Used to load all recipes into the UI
+async function showRecipe() {
+    document.querySelector('#recipe-content').innerHTML = DOMPurify.sanitize(recipe.content);
 }

@@ -7,9 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // PRE-PAGE LOAD - Dynamic JavaScript for content loaded on specific pages
       if (url.indexOf('cookbook') != -1) {
-        const cookbook_loaded = await getCookbook();
+        await getCookbook();
       }
-
+      if (url.indexOf('recipe') != -1) {
+        const recipeId = url.split('/')[1];
+        url = `section/recipe.html?id=${recipeId}`;
+        await getRecipe(recipeId);
+      }
+      console.log(url)
       // Fetch the standalone partial HTML file
       const response = await fetch(url);
       
@@ -30,6 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // POST-PAGE LOAD - Dynamic JavaScript for after a page is loaded
       if (url.indexOf('cookbook') != -1) {
         showCookbook();
+      } else if(url.indexOf('recipe') != -1) {
+        showRecipe();
       }
     } catch (error) {
       contentContainer.innerHTML = `<div class="alert alert-danger">Error loading content: ${error.message}</div>`;
