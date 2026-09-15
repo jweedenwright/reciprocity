@@ -1,3 +1,8 @@
+html {
+  /* Scales fluidly between mobile and desktop viewports */
+  font-size: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+}
+
 body {
   background-color: rgb(20, 80, 117);
   font-family: "Roboto", sans-serif;
@@ -5,7 +10,6 @@ body {
   font-weight: 100;
   font-style: normal;
   font-variation-settings: "wdth" 100;
-}
 }
 
 #pwa-container {
@@ -16,4 +20,15 @@ body {
     background-color: rgb(20, 80, 117);
     padding-top: 60px;
     padding-bottom: 65px;
+}
+
+#main-content .markdown-body {
+  font-size: 1rem;
+}
+.badge {
+  margin: 0 4px;
+}
+.btn-group>.btn {
+  --mdb-btn-padding-x: 0.75rem;
+  --mdb-btn-padding-y: 0.375rem;
 }

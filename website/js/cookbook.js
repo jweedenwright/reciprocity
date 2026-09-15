@@ -2,10 +2,12 @@
 let api_recipes = []
 let recipes = []
 let recipe = {content: null }; // Using an object to hold the recipe data so that it can be reactive if needed
+const recipeContainer = document.getElementById('main-content');
 
+////////////////////////////////////////////////////////////
+// COOK MODE BUTTON
 // Initialize wake lock and elements
 let wakeLock = null;
-const recipeContainer = document.getElementById('main-content');
 const cookModeBtn = document.getElementById('cook-mode');
 console.log(cookModeBtn)
 
@@ -40,6 +42,27 @@ async function disableCookMode() {
   }
   recipeContainer.classList.remove('cook-mode-active');
   cookModeBtn.classList.remove('btn-danger');
+}
+
+////////////////////////////////////////////////////////////
+// TEXT SIZE BUTTON
+const textSizeDecreaseBtn = document.getElementById('text-size-decrease');
+const textSizeIncreaseBtn = document.getElementById('text-size-increase');
+console.log(textSizeDecreaseBtn, textSizeIncreaseBtn);
+
+textSizeDecreaseBtn.addEventListener('click', async () => {
+    decreaseTextSize();
+});
+
+textSizeIncreaseBtn.addEventListener('click', async () => {
+    increaseTextSize();
+});
+function decreaseTextSize() {
+  document.documentElement.style.fontSize = (parseFloat(getComputedStyle(document.documentElement).fontSize) - .5) + 'px';
+}
+
+function increaseTextSize() {
+  document.documentElement.style.fontSize = (parseFloat(getComputedStyle(document.documentElement).fontSize) + .5) + 'px';
 }
 
 ////////////////////////////////////////////////////////////
