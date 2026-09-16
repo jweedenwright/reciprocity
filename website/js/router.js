@@ -36,7 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (url.indexOf('cookbook') != -1) {
         showCookbook();
       } else if(url.indexOf('recipe') != -1) {
-        showRecipe();
+        await showRecipe();
+        await addStylesToMarkdownContent();
       }
     } catch (error) {
       contentContainer.innerHTML = `<div class="alert alert-danger">Error loading content: ${error.message}</div>`;

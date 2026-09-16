@@ -144,5 +144,18 @@ async function getRecipe(id) {
 
 // Used to load all recipes into the UI
 async function showRecipe() {
+    console.log('add content');
     document.querySelector('#recipe-content').innerHTML = DOMPurify.sanitize(recipe.content);
+    
+}
+
+async function addStylesToMarkdownContent() {
+    console.log('add styles');
+    document.querySelectorAll('#recipe-content table').forEach(table => {
+        table.classList.add('table', 'table-striped', 'w-100', 'table-sm');
+    });
+    document.querySelectorAll('#recipe-content table tbody').forEach(tbody => {
+        tbody.classList.add('table-group-divider','table-divider-color');
+    });
+    
 }
