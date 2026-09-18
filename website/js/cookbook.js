@@ -86,11 +86,11 @@ async function showCookbook() {
     document.querySelector('#recipe-list ul').innerHTML = ''; // Clear existing list
     api_recipes.forEach((item) => {
         var li = "<li class='list-group-item justify-content-between align-items-center recipe'><a href='#/recipe/" + item.id + "' data-route='recipe/" + item.id + "' action>";
-        li += "<div class='d-flex'><h3 class='fw-bold'>" + DOMPurify.sanitize(item.name).replace('.md','') + "</h3></div><div class='d-flex'><p>";
+        li += "<div class='row'><div class='d-flex col-sm'><h3 class='fw-bold'>" + DOMPurify.sanitize(item.name).replace('.md','') + "</h3></div><div class='d-flex col-sm'><p>";
         item.description.split('|').forEach(tag => {
             li += "<span class='badge badge-warning rounded-pill'>" + DOMPurify.sanitize(tag) + "</span>";
         });
-        li += "</p></div></a></li>";
+        li += "</p></div></div></a></li>";
         document.querySelector('#recipe-list ul').innerHTML += li;
     });
     // Cache the recipe elements for filtering
@@ -157,5 +157,5 @@ async function addStylesToMarkdownContent() {
     document.querySelectorAll('#recipe-content table tbody').forEach(tbody => {
         tbody.classList.add('table-group-divider','table-divider-color');
     });
-    
+
 }
